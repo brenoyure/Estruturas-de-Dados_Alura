@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Vetor {
 
-	private Aluno[] alunos = new Aluno[10];
+	private Aluno[] alunos = new Aluno[4];
 	private int totalDeAlunos;
 
 	public Vetor() {
@@ -17,14 +17,17 @@ public class Vetor {
 	}
 
 	public void adiciona(int posicao, Aluno aluno) {
-		if(posicaoOcupada(posicao)) {
-			for (int i = totalDeAlunos -1 ; i > alunos.length; i--) {
-				alunos[i+1] = alunos[i];
-				alunos[i] = aluno;
+		if (posicaoOcupada(posicao)) {
+			for (int i = totalDeAlunos; i > posicao; i--) {
+				alunos[i] = alunos[i - 1];
 			}
 			alunos[posicao] = aluno;
+			totalDeAlunos++;
+
 		}
-		
+		alunos[posicao] = aluno;
+		totalDeAlunos++;
+
 	}
 
 	/**
@@ -79,7 +82,7 @@ public class Vetor {
 	}
 
 	private boolean posicaoOcupada(int posicao) {
-		return posicao >= 0 && posicao < this.totalDeAlunos;
+		return posicaoValida(posicao) && posicao < this.totalDeAlunos;
 	}
 
 }
