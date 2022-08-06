@@ -4,7 +4,7 @@ public class VetorTeste {
 
 	public static void main(String[] args) {
 
-		Vetor lista = new Vetor(10);
+		Vetor lista = new Vetor(1);
 
 		Aluno a1 = new Aluno("Breno");
 		Aluno a2 = new Aluno("Inácio da Paz");
@@ -28,7 +28,7 @@ public class VetorTeste {
 		System.out.println(lista);
 
 		System.out.println("Lista de Alunos com " + lista.tamanho() + " posições.");
-		
+
 		Aluno x = lista.pega(0);
 		boolean cotemX = lista.contem(x);
 		System.out.println(cotemX);
