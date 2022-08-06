@@ -35,12 +35,11 @@ public class Vetor {
 	public void adiciona(int posicao, Aluno aluno) {
 		if (posicaoOcupada(posicao)) {
 			garanteEspaco();
-			for (int i = totalDeAlunos; i > posicao; i--) {
-				alunos[i] = alunos[i - 1];
+			for (int i = totalDeAlunos - 1; i >= posicao; i--) {
+				alunos[i + 1] = alunos[i];
 			}
 			alunos[posicao] = aluno;
 			totalDeAlunos++;
-
 		}
 		try {
 			alunos[posicao] = aluno;
@@ -59,26 +58,35 @@ public class Vetor {
 	 */
 	public boolean contem(Aluno aluno) {
 		for (int i = 0; i < totalDeAlunos;) {
-			if (alunos[i].equals(aluno)) {
+			if (alunos[i].equals(aluno))
 				return true;
-			}
 			break;
 		}
 		return false;
 	}
 
 	public void remove(int posicao) {
-
+		if (posicaoOcupada(posicao)) {
+			this.alunos[posicao] = null;
+			totalDeAlunos--; // -> Subtrai 1, fora do laço for
+			for (int i = posicao; i < totalDeAlunos; i++) {
+				this.alunos[i] = this.alunos[i + 1];
+			}
+		}
 	}
 
 	public int tamanho() {
 		return this.alunos.length;
 	}
 
-	public Aluno pega(int posicao) { // <-- Falta tratar exception
-		if (!posicaoValida(posicao))
-			throw new IllegalArgumentException("Posição Inválida."); // <-- Tratar dps
-		return this.alunos[posicao];
+	public Aluno pega(int posicao) {
+		Aluno aluno = null;
+		try {
+			aluno = this.alunos[posicao];
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.err.println("Posição Inválida ou Objeto Nulo.");
+		}
+		return aluno;
 	}
 
 	@Override
@@ -92,8 +100,8 @@ public class Vetor {
 	 */
 
 	/**
-	 * Verifica se uma posição é válida, tendo como critério:
-	 * posição deve ser maior ou igual a zero e menor que o tamanho do vetor
+	 * Verifica se uma posição é válida, tendo como critério: posição deve ser maior
+	 * ou igual a zero e menor que o tamanho do vetor
 	 * 
 	 * @param posicao
 	 * @return boolean
@@ -102,7 +110,9 @@ public class Vetor {
 		return posicao >= 0 && posicao <= this.alunos.length;
 	}
 
-//	private boolean posicaoLivre(int posicao); <-- Lembrar de Implementar
+//	private boolean posicaoLivre(int posicao) {
+//		return posicao >= totalDeAlunos && posicao < tamanho();
+//	}
 
 	private boolean posicaoOcupada(int posicao) {
 		return posicaoValida(posicao) && posicao < this.totalDeAlunos;
@@ -112,8 +122,8 @@ public class Vetor {
 		try {
 			alunos[posicao] = aluno;
 		} catch (ArrayIndexOutOfBoundsException e) {
-			System.err.println(
-					"Posição inexistente, o aluno " + aluno.getNome() + " será adicionado na próxima posição disponível.");
+			System.err.println("Posição inexistente, o aluno " + aluno.getNome()
+					+ " será adicionado na próxima posição disponível.");
 			adiciona(aluno);
 //			totalDeAlunos++; <-- Método adiciona já soma um no total de alunos.
 		}
