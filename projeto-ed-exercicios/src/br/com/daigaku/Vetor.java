@@ -2,6 +2,12 @@ package br.com.daigaku;
 
 import java.util.Arrays;
 
+/**
+ * Tentando criar meu ArrayList que armazena referências do tipo Aluno
+ * 
+ * @author Breno Yuri
+ *
+ */
 public class Vetor {
 
 	private Aluno[] alunos;
@@ -25,6 +31,13 @@ public class Vetor {
 
 	}
 
+	/**
+	 * Adiciona o aluno na (próxima) posição disponível. Antes de adicionar,
+	 * verifica se o vetor está cheio, se sim, cria um novo vetor com o dobro do
+	 * tamanho, através do método "garanteEspaço()"
+	 * 
+	 * @param aluno
+	 */
 	public void adiciona(Aluno aluno) {
 		if (vetorCheio())
 			garanteEspaco();
@@ -110,10 +123,6 @@ public class Vetor {
 		return posicao >= 0 && posicao <= this.alunos.length;
 	}
 
-//	private boolean posicaoLivre(int posicao) {
-//		return posicao >= totalDeAlunos && posicao < tamanho();
-//	}
-
 	private boolean posicaoOcupada(int posicao) {
 		return posicaoValida(posicao) && posicao < this.totalDeAlunos;
 	}
@@ -125,7 +134,7 @@ public class Vetor {
 			System.err.println("Posição inexistente, o aluno " + aluno.getNome()
 					+ " será adicionado na próxima posição disponível.");
 			adiciona(aluno);
-//			totalDeAlunos++; <-- Método adiciona já soma um no total de alunos.
+//			totalDeAlunos++; <-- Método adiciona() já soma um no total de alunos.
 		}
 	}
 
@@ -140,5 +149,9 @@ public class Vetor {
 		}
 		this.alunos = novoArray;
 	}
+
+//	private boolean posicaoLivre(int posicao) {
+//	return posicao >= totalDeAlunos && posicao < tamanho();
+//}
 
 }

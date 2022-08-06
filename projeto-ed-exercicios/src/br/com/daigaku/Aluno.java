@@ -1,5 +1,11 @@
 package br.com.daigaku;
 
+/**
+ * Modelo da classe Aluno da Universidade 大学
+ * 
+ * @author Breno Yuri
+ *
+ */
 public class Aluno {
 
 	private String nome;

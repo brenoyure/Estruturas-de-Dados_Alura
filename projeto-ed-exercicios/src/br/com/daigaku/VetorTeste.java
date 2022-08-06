@@ -4,7 +4,7 @@ public class VetorTeste {
 
 	public static void main(String[] args) {
 
-		Vetor lista = new Vetor(1);
+		Vetor lista = new Vetor(6);
 
 		Aluno a1 = new Aluno("Breno");
 		Aluno a2 = new Aluno("Inácio da Paz");
@@ -24,7 +24,7 @@ public class VetorTeste {
 		System.out.println(lista);
 		lista.adiciona(a5);
 		System.out.println(lista);
-		lista.adiciona(6, a6);
+		lista.adiciona(0, a6);
 		System.out.println(lista);
 
 		System.out.println("Lista de Alunos com " + lista.tamanho() + " posições.");
