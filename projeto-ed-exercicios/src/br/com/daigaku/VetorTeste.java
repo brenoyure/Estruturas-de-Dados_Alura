@@ -4,7 +4,7 @@ public class VetorTeste {
 
 	public static void main(String[] args) {
 
-		Vetor lista = new Vetor();
+		Vetor lista = new Vetor(1);
 
 		Aluno a1 = new Aluno("Breno");
 		Aluno a2 = new Aluno("Inácio da Paz");
@@ -14,15 +14,14 @@ public class VetorTeste {
 		System.out.println("Lista de Alunos com " + lista.tamanho() + " posições.");
 
 		lista.adiciona(a1);
-		lista.adiciona(a2);
+		lista.adiciona(-4, a2);
+
+		System.out.println(lista);
+
 		lista.adiciona(a3);
 		System.out.println(lista);
 		lista.adiciona(1, a4);
 		System.out.println(lista);
-
-		for (int i = 0; i < 20; i++) {
-			System.out.println("IMPLEMENTAR O MÉTODO PARA GERAR NOVO ARRAY AO ADICIONAR");
-		}
 
 	}
 
