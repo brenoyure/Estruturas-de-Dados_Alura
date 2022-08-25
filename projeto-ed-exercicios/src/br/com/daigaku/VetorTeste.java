@@ -11,7 +11,7 @@ public class VetorTeste {
 		Aluno a3 = new Aluno("Nathanael Flintch");
 		Aluno a4 = new Aluno("Guilherme Linhares");
 		Aluno a5 = new Aluno("Dennys");
-
+		Aluno a6 = new Aluno("Thiago Silva");
 
 		System.out.println("Lista de Alunos com " + lista.tamanho() + " posições.");
 
@@ -24,6 +24,7 @@ public class VetorTeste {
 		System.out.println(lista);
 		lista.adiciona(a5);
 		System.out.println(lista);
+		lista.adiciona(0, a6);
 		System.out.println(lista);
 
 		System.out.println("Lista de Alunos com " + lista.tamanho() + " posições.");
