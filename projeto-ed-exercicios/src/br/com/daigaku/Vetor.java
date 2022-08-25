@@ -33,8 +33,8 @@ public class Vetor {
 
 	/**
 	 * Adiciona o aluno na (próxima) posição disponível. Antes de adicionar,
-	 * verifica se o vetor está cheio, se sim, cria um novo com o dobro do
-	 * tamanho, através do método garanteEspaço().
+	 * verifica se o vetor está cheio, se sim, cria um novo vetor com o dobro do
+	 * tamanho, através do método "garanteEspaço()"
 	 * 
 	 * @param aluno
 	 */
@@ -107,8 +107,9 @@ public class Vetor {
 		return Arrays.toString(alunos);
 	}
 
-	/*
+	/**
 	 * Métodos Auxiliares da classe Vetor
+	 * 
 	 */
 
 	/**
